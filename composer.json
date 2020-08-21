@@ -1,0 +1,14 @@
+{
+    "name": "janmikes/nettecamp-dokku-demo-app",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jan Mikeš",
+            "email": "j.mikes@me.com"
+        }
+    ],
+    "require": {
+        "php": "7.4.*",
+        "ext-gd": "*"
+    }
+}
