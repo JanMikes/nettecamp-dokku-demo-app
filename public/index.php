@@ -1,3 +1,5 @@
 <?php declare(strict_types=1);
 
-phpinfo();
+$word = getenv('GREETING') ?: 'empty';
+
+echo $word;
