@@ -3,3 +3,5 @@
 $word = getenv('GREETING') ?: 'empty';
 
 echo $word;
+
+echo "\nThis is deploy from github actions";
