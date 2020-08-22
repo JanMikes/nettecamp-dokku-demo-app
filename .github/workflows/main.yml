@@ -17,4 +17,4 @@ jobs:
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_SSH_KEY }}
           HOST: nettecamp.janmikes.cz
-          PROJECT: camp-staging
+          PROJECT: camp-github
