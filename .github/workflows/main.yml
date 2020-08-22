@@ -5,16 +5,23 @@ on:
     branches:
       - master
 
+env:
+  DOKKU_HOST: 'nettecamp.janmikes.cz'
+  DOKKU_APP_NAME: 'camp-github'
+  DOKKU_REMOTE_BRANCH: 'master'
+
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
-      - name: Dokku deploy
-        uses: vitalyliber/dokku-github-action@v4.0
-        env:
-          PRIVATE_KEY: ${{ secrets.PRIVATE_SSH_KEY }}
-          HOST: nettecamp.janmikes.cz
-          PROJECT: camp-github
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Deploy
+        uses: woudsma/dokku-deploy-github-action@v1
+        with:
+          ssh-private-key: ${{ secrets.PRIVATE_SSH_KEY }}
+          dokku-host: ${{ env.DOKKU_HOST }}
+          app-name: ${{ env.DOKKU_APP_NAME }}
+          app-remote-branch: ${{ env.DOKKU_REMOTE_BRANCH }}
